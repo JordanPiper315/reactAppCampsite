@@ -25,13 +25,16 @@ const DisplayList = () => {
                 if (errMsg) {
                     return <Error errMsg={errMsg} key={idx} />
                 }
-                return (
-                    featuredItem && (
-                        <Col md className='m-1' key={idx}>
-                            <AnimatedDisplayCard item={featuredItem} />
-                        </Col>
+                if (featuredItem) {
+                    return (
+                        item && (
+                            <Col md className='m-1' key={idx}>
+                                <AnimatedDisplayCard item={featuredItem} />
+                            </Col>
+                        )
                     )
-                )
+                }
+                return null;
             })}
         </Row>
     )
